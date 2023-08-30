@@ -216,6 +216,9 @@ BEGIN
 END
 $$
 
+CALL sp_get_films_order('name', 'A');
+CALL sp_get_films_order('year', 'D');
+
 # Stored Procedure para agregar películas por parámetros, no permite incluir ningún
 # id igual a 0 o un id de un actor, director, género o país que no existan
 DELIMITER $$
@@ -252,6 +255,8 @@ BEGIN
     END IF;
 END
 $$
+
+CALL sp_get_add_films('Enormous', 1995, 1, 1, 1, 1);
 
 # Creación de tabla donde se replica los nuevos actores incluidos
 # en la tabla `actors`
